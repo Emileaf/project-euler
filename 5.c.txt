@@ -1,0 +1,26 @@
+#include <stdbool.h>
+#include <stdio.h>
+
+bool divisible(const int num){
+  for (int i = 1; i <= 20; ++i){
+    if (num % i != 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+int multiple(void){
+  int a = 21;
+  while (1){
+    if (divisible(a)){
+      return a;
+    }
+    ++a;
+  }
+}
+
+int main(void){
+  int result = multiple();
+  printf("%d\n", result);
+}
