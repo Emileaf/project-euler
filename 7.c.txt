@@ -1,0 +1,33 @@
+#include <stdbool.h>
+#include <stdio.h>
+
+// By listing the first six prime numbers: 2, 3, 5, 7, 11, and 
+// 13, we can see that the 6th prime is 13.
+
+// What is the 10 001st prime number?
+
+bool isprime(int num){
+  for (int i = 2; i < num; ++i){
+    if (num % i == 0) return false;
+  }
+  return true;
+}
+
+int countprime (const int count){
+  int sofar = 1;
+  int start = 3;
+  bool prime;
+  while (sofar < count){
+    prime = isprime(start);
+    if (prime) {
+      sofar += 1;
+    }
+    start += 1;
+  }
+  return start - 1;
+}
+
+int main(void){
+  int result = countprime(10001);
+  printf("%d\n", result);
+}
